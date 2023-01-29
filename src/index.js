@@ -1,21 +1,20 @@
 module.exports = function check(str, bracketsConfig) {
   let result; 
-  let resultStr = str;
-  
+    
   let i = 0;
 
-  while (i < resultStr.length) {
-    let initialLengthStr = resultStr.length;
+  while (i < str.length) {
+    let initialLengthStr = str.length;
 
     bracketsConfig.forEach(item => {
-      if (resultStr[i] === item[0] && resultStr[i + 1] === item[1]) resultStr = resultStr.slice(0, i) + resultStr.slice(i + 2);
+      if (str[i] === item[0] && str[i + 1] === item[1]) str = str.slice(0, i) + str.slice(i + 2);
     })
 
-    if (initialLengthStr === resultStr.length) i += 1;
+    if (initialLengthStr === str.length) i += 1;
     else i = 0;
   }
 
-  if (resultStr === '') result = true;
+  if (str === '') result = true;
   else result = false;
 
   return result
